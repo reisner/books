@@ -14,7 +14,7 @@
   <fieldset>
     <strong>First editions:</strong><br />
     <% @book.editions.each do |e| %>
-      <%= e.edition_type %> (<%= e.pub_year %>) <%= image_tag e.cover.url(:thumb) %><br />
+      <%= link_to edition_types[e.edition_type] + " (" + e.pub_year.to_s + ")", [@book, e] %> <%= image_tag e.cover.url(:thumb) %><br />
     <% end %>
     <br /><br />
     <%= link_to 'Add First Edition', new_book_edition_path(@book) %>
