@@ -4,6 +4,7 @@ class CreateBooks < ActiveRecord::Migration
       t.string :title
       t.string :wikipedia
       t.string :goodreads
+      t.string :author
 
       t.timestamps null: false
     end

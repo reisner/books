@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  wikipedia: MyString
-  goodreads: MyString
+  title: The Handmaid's Tale
+  author: Margaret Atwood
+  wikipedia: https://en.wikipedia.org/wiki/The_Handmaid%27s_Tale
+  goodreads: https://www.goodreads.com/book/show/38447.The_Handmaid_s_Tale
 
 two:
-  title: MyString
-  wikipedia: MyString
-  goodreads: MyString
+  title: The Satanic Verses
+  author: Salman Rushdie
+  wikipedia: https://en.wikipedia.org/wiki/The_Satanic_Verses
+  goodreads: https://www.goodreads.com/book/show/12781.The_Satanic_Verses

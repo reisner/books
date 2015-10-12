@@ -11,14 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151010033300) do
+ActiveRecord::Schema.define(version: 20151012032925) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title",      limit: 255
     t.string   "wikipedia",  limit: 255
     t.string   "goodreads",  limit: 255
+    t.string   "author",     limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  create_table "editions", force: :cascade do |t|
+    t.integer  "pub_year",                    limit: 4
+    t.string   "edition_type",                limit: 255
+    t.integer  "book_id",                     limit: 4
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.string   "cover_file_name",             limit: 255
+    t.string   "cover_content_type",          limit: 255
+    t.integer  "cover_file_size",             limit: 4
+    t.datetime "cover_updated_at"
+    t.string   "copyright_page_file_name",    limit: 255
+    t.string   "copyright_page_content_type", limit: 255
+    t.integer  "copyright_page_file_size",    limit: 4
+    t.datetime "copyright_page_updated_at"
+  end
+
+  add_index "editions", ["book_id"], name: "index_editions_on_book_id", using: :btree
 
 end

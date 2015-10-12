@@ -1,0 +1,39 @@
+<%= form_for([@book, @edition], html: { multipart: true }) do |f| %>
+
+  <% if @edition.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@edition.errors.count, "error") %> prohibited this edition from being saved:</h2>
+
+      <ul>
+      <% @edition.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :pub_year %><br>
+    <%= f.text_field :pub_year %>
+  </div>
+
+  <div class="field">
+    <%= f.label :edition_type %><br>
+    <%= f.radio_button :edition_type, 'thus', :checked => true %> First Edition, Thus<br />
+    <%= f.radio_button :edition_type, 'true' %> True First Edition
+  </div>
+
+  <div class="field">
+    <%= f.label :cover %><br>
+    <%= f.file_field :cover %>
+  </div>
+
+  <div class="field">
+    <%= f.label :copyright_page %><br>
+    <%= f.file_field :copyright_page %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

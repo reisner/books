@@ -6,14 +6,25 @@
 </p>
 
 <p>
-  <strong>Wikipedia:</strong>
-  <%= @book.wikipedia %>
+  <strong>Author:</strong>
+  <%= @book.author %>
 </p>
 
 <p>
-  <strong>Goodreads:</strong>
-  <%= @book.goodreads %>
+  <fieldset>
+    <strong>First editions:</strong><br />
+    <% @book.editions.each do |e| %>
+      <%= e.edition_type %> (<%= e.pub_year %>) <%= image_tag e.cover.url(:thumb) %><br />
+    <% end %>
+    <br /><br />
+    <%= link_to 'Add First Edition', new_book_edition_path(@book) %>
+  </fieldset>
 </p>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+<p><%= link_to "Wikipedia Link", @book.wikipedia %></p>
+
+<p><%= link_to "Goodreads Link", @book.goodreads %></p>
+
+<%= link_to 'Edit', edit_book_path(@book) %>
+<br />
+<%= link_to 'Back to Books', books_path %>
