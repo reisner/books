@@ -1,4 +1,5 @@
-<%= form_for(@book) do |f| %>
+<!-- form-inline or form-horizontal -->
+<%= simple_form_for(@book, html: { class: 'form-inline' }) do |f| %>
   <% if @book.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
@@ -11,23 +12,15 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :author %><br>
-    <%= f.text_field :author %>
-  </div>
-  <div class="field">
-    <%= f.label :wikipedia %><br>
-    <%= f.text_field :wikipedia %>
-  </div>
-  <div class="field">
-    <%= f.label :goodreads %><br>
-    <%= f.text_field :goodreads %>
-  </div>
+  <%= f.input :title, :input_html => {:maxlength => 15, :size => 50} %>
+  <br />
+  <%= f.input :author, :input_html => {:maxlength => 15, :size => 50} %>
+
+  <%= f.input :wikipedia, :label => "Wikipedia URL", :input_html => {:maxlength => 15, :size => 50} %>
+
+  <%= f.input :goodreads, :label => "Goodreads URL", :input_html => {:maxlength => 15, :size => 50} %>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-primary" %>
   </div>
 <% end %>

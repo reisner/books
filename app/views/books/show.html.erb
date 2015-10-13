@@ -10,21 +10,33 @@
   <%= @book.author %>
 </p>
 
-<p>
-  <fieldset>
-    <strong>First editions:</strong><br />
-    <% @book.editions.each do |e| %>
-      <%= link_to edition_types[e.edition_type] + " (" + e.pub_year.to_s + ")", [@book, e] %> <%= image_tag e.cover.url(:thumb) %><br />
-    <% end %>
-    <br /><br />
-    <%= link_to 'Add First Edition', new_book_edition_path(@book) %>
-  </fieldset>
-</p>
-
 <p><%= link_to "Wikipedia Link", @book.wikipedia %></p>
 
 <p><%= link_to "Goodreads Link", @book.goodreads %></p>
 
-<%= link_to 'Edit', edit_book_path(@book) %>
-<br />
-<%= link_to 'Back to Books', books_path %>
+<%= link_to 'Edit Book', edit_book_path(@book), :class => 'btn btn-primary' %>
+
+<br /><br />
+
+<p>
+    <strong>First editions:</strong>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered table-condensed">
+        <% @book.editions.each do |e| %>
+          <tr>
+            <td><%= image_tag e.cover.url(:thumb) %></td>
+            <td><%= link_to edition_types[e.edition_type], [@book, e] %></td>
+            <td><%= e.pub_year.to_s %></td>
+            <td><%= link_to 'Edit', edit_book_edition_path(@book, e), :class => "btn btn-sm btn-primary" %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <%= link_to 'Add First Edition', new_book_edition_path(@book), :class => 'btn btn-primary btn-sm' %>
+</p>
+
+
+
+<hr />
+
+ <%= link_to 'Back to Books', books_path, :class => 'btn btn-primary' %>
