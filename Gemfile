@@ -34,6 +34,8 @@ gem "twitter-bootstrap-rails"
 
 gem 'simple_form'
 
+gem 'jquery-tablesorter'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
