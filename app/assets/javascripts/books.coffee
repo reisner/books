@@ -3,5 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready ->
-  $('#booksTable').tablesorter({sortList: [[2,0], [4,0]]})
-  return
+  $('#booksTable').dataTable( 'columnDefs': [{ 
+  'orderable': false
+  'targets': [0, 4, 5, 6]
+  }])

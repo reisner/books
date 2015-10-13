@@ -34,7 +34,9 @@ gem "twitter-bootstrap-rails"
 
 gem 'simple_form'
 
-gem 'jquery-tablesorter'
+#gem 'jquery-datatables-rails', '~> 3.3.0'
+gem 'jquery-datatables-rails', github: "rweng/jquery-datatables-rails", branch: "master"
+#FIX THIS^^ 
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
