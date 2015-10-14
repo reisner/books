@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
   resources :books do 
-    resources :editions#, :except => :show
+    resources :editions, :except => :index
   end
+
+  #Listing all editions without a book:
+  resources :editions, :only => :index
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

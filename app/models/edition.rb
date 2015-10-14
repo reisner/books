@@ -1,9 +1,11 @@
 class Edition < ActiveRecord::Base
   belongs_to :book
 
-  validates :pub_year, numericality: true, presence: true
-  validates :edition_type, presence: true
+  validates :pub_year, :numericality => { :greater_than => 0, :less_than_or_equal_to => Time.now.year }, presence: true
+  validates :edition_type, :length => { :minimum => 4, :message => 'must be specified' }
   validates :book_id, presence: true
+  validates :number_printed, :numericality => { :greater_than => 0, :allow_blank => true }
+
   #validates :edition_type, inclusion: { in: edition_types.keys }
 
   #To Add: Country, #printed, ...

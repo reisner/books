@@ -33,6 +33,7 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem "twitter-bootstrap-rails"
 
 gem 'simple_form'
+gem 'country_select'
 
 #gem 'jquery-datatables-rails', '~> 3.3.0'
 gem 'jquery-datatables-rails', github: "rweng/jquery-datatables-rails", branch: "master"

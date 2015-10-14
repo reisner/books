@@ -3,23 +3,26 @@
 <h2>Listing Editions</h2>
 
 <table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @editions.each do |edition| %>
+<div class="table-responsive">
+  <table id="editionsTable" class="table table-striped table-bordered">
+    <thead>
       <tr>
-        <td><%= link_to 'Show', [@book, edition] %></td>
-        <td><%= link_to 'Edit', edit_book_edition_path(@book, edition) %></td>
-        <td><%= link_to 'Destroy', [@book, edition], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Book</th>
+        <th>Year Published</th>
+        <th></th>
+        <th></th>        
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New Edition', new_book_edition_path(@book) %>
+    <tbody>
+      <% @editions.each do |edition| %>
+        <tr>
+          <td><%= edition.book.title %></td>
+          <td><%= edition.pub_year %></td>        
+          <td><%= link_to 'Edit', edit_book_edition_path(edition.book, edition) %></td>
+          <td><%= link_to 'Destroy', [edition.book, edition], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

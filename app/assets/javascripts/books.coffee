@@ -7,3 +7,9 @@ $(document).ready ->
   'orderable': false
   'targets': [0, 4, 5, 6]
   }])
+
+$(document).ready ->
+  $('#editionsTable').dataTable( 'columnDefs': [{ 
+  'orderable': false
+  'targets': [2, 3]
+  }])

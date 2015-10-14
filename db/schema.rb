@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151012032925) do
+ActiveRecord::Schema.define(version: 20151014032658) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20151012032925) do
     t.string   "copyright_page_content_type", limit: 255
     t.integer  "copyright_page_file_size",    limit: 4
     t.datetime "copyright_page_updated_at"
+    t.string   "country",                     limit: 255
+    t.integer  "number_printed",              limit: 4
   end
 
   add_index "editions", ["book_id"], name: "index_editions_on_book_id", using: :btree

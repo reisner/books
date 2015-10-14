@@ -13,11 +13,16 @@
   <% end %>
 
   <%= f.input :pub_year %>
-  <br />
+  <br /><br />
+  <%= f.input :country, priority: [ "United States", "United Kingdom", "Canada" ] %>
+  <br /><br />
+  <%= f.input :number_printed %>
+  <br /><br />
   
-  <%= f.collection_radio_buttons :edition_type, [['thus', 'First Edition, Thus'] ,['true', 'True First Edition']], :first, :last %>
-  <br />
+  <%= f.collection_radio_buttons :edition_type, edition_types.collect { |k,v| [k, v] }, :first, :last %>
+  <br /><br />
 
+  <h3>Book Images:</h3>
   <%= f.input :cover, as: :file %>
   <br /><br />
   <%= f.input :copyright_page, as: :file %>

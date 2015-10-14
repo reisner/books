@@ -1,6 +1,6 @@
 class EditionsController < ApplicationController
   before_action :set_edition, only: [:show, :edit, :update, :destroy]
-  before_action :set_book
+  before_action :set_book, except: [:index]
 
   # GET /editions
   # GET /editions.json
