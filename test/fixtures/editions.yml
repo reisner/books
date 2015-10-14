@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  pub_year: 1
-  type: 
+  pub_year: 1993
+  edition_type: true
+  book: one
 
 two:
-  pub_year: 1
-  type: 
+  pub_year: 1992
+  edition_type: thus
+  book: one

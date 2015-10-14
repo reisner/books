@@ -3,6 +3,7 @@ class Edition < ActiveRecord::Base
 
   validates :pub_year, numericality: true, presence: true
   validates :edition_type, presence: true
+  validates :book_id, presence: true
   #validates :edition_type, inclusion: { in: edition_types.keys }
 
   #To Add: Country, #printed, ...

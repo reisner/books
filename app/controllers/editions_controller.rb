@@ -75,7 +75,7 @@ class EditionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def edition_params
-      params.require(:edition).permit(:edition_type, :pub_year, :type, :cover, :copyright_page)
+      params.require(:edition).permit(:edition_type, :pub_year, :cover, :copyright_page)
     end
 
 end

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :books do 
-    resources :editions, :except => :show
+    resources :editions#, :except => :show
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
