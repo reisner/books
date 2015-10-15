@@ -4,6 +4,9 @@ class EditionsControllerTest < ActionController::TestCase
   setup do
     @edition = editions(:one)
     @book = @edition.book
+    @user = users(:one)
+
+    sign_in :user, @user
   end
 
   test "should get index" do

@@ -3,6 +3,9 @@ require 'test_helper'
 class BooksControllerTest < ActionController::TestCase
   setup do
     @book = books(:one)
+    @user = users(:one)
+
+    sign_in :user, @user
   end
 
   test "should get index" do
