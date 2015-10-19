@@ -1,5 +1,6 @@
-
-<%= link_to 'New Book', new_book_path, :class => "btn btn-primary" %>
+<% if can_curate? %>
+  <%= link_to 'New Book', new_book_path, :class => "btn btn-primary" %>
+<% end %>
 
 <br /><br />
 
@@ -12,8 +13,10 @@
         <th>Author</th>
         <th>First Editions</th>
         <th>Links</th>
-        <th></th>
-        <th></th>        
+        <% if can_curate? %>
+          <th></th>
+          <th></th>
+        <% end %> 
       </tr>
     </thead>
 
@@ -28,8 +31,10 @@
           <td><%= book.editions.length %></td>
           <td><%= link_to "Wikipedia", book.wikipedia %>
               <br /><%= link_to "Goodreads", book.goodreads %></td>
-          <td><%= link_to 'Edit', edit_book_path(book), :class => "btn btn-sm btn-primary" %></td>
-          <td><%= link_to 'Delete', book, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-sm btn-danger" %></td>
+          <% if can_curate? %>
+            <td><%= link_to 'Edit', edit_book_path(book), :class => "btn btn-sm btn-primary" %></td>
+            <td><%= link_to 'Delete', book, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-sm btn-danger" %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
@@ -38,4 +43,6 @@
 
 <br />
 
-<%= link_to 'New Book', new_book_path, :class => "btn btn-primary" %>
+<% if can_curate? %>
+  <%= link_to 'New Book', new_book_path, :class => "btn btn-primary" %>
+<% end %>

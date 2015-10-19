@@ -1,2 +1,8 @@
+<%= image_tag @edition.cover.url %>
 
-<%= link_to 'Edit', edit_book_edition_path(@book, @edition) %> 
+<br />
+<%= @edition.book.title %> (<%= @edition.pub_year.to_s %>)
+
+<% if can_curate? %>
+  <%= link_to 'Edit', edit_book_edition_path(@book, @edition), :class => "btn btn-sm btn-primary" %>
+<% end %>

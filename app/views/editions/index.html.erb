@@ -8,8 +8,10 @@
       <tr>
         <th>Book</th>
         <th>Year Published</th>
-        <th></th>
-        <th></th>        
+        <% if can_curate? %>
+          <th></th>
+          <th></th>      
+        <% end %>  
       </tr>
     </thead>
 
@@ -17,9 +19,11 @@
       <% @editions.each do |edition| %>
         <tr>
           <td><%= edition.book.title %></td>
-          <td><%= edition.pub_year %></td>        
-          <td><%= link_to 'Edit', edit_book_edition_path(edition.book, edition) %></td>
-          <td><%= link_to 'Destroy', [edition.book, edition], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= edition.pub_year %></td>   
+          <% if can_curate? %>     
+            <td><%= link_to 'Edit', edit_book_edition_path(edition.book, edition) %></td>
+            <td><%= link_to 'Destroy', [edition.book, edition], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

@@ -13,7 +13,9 @@
 
 <p><%= link_to "Goodreads Link", @book.goodreads %></p>
 
-<%= link_to 'Edit Book', edit_book_path(@book), :class => 'btn btn-primary' %>
+<% if can_curate? %>
+  <%= link_to 'Edit Book', edit_book_path(@book), :class => 'btn btn-primary' %>
+<% end %>
 
 <br /><br />
 
@@ -26,12 +28,16 @@
             <td><%= image_tag e.cover.url(:thumb) %></td>
             <td><%= link_to edition_types[e.edition_type], [@book, e] %></td>
             <td><%= e.pub_year.to_s %></td>
-            <td><%= link_to 'Edit', edit_book_edition_path(@book, e), :class => "btn btn-sm btn-primary" %></td>
+            <% if can_curate? %>
+              <td><%= link_to 'Edit', edit_book_edition_path(@book, e), :class => "btn btn-sm btn-primary" %></td>
+            <% end %>
           </tr>
         <% end %>
       </table>
     </div>
-    <%= link_to 'Add First Edition', new_book_edition_path(@book), :class => 'btn btn-primary btn-sm' %>
+    <% if can_curate? %>
+      <%= link_to 'Add First Edition', new_book_edition_path(@book), :class => 'btn btn-primary btn-sm' %>
+    <% end %>
 </p>
 
 
