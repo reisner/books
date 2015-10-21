@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   #Listing all editions without a book:
   resources :editions, :only => :index
 
+  get "/pages/:page" => "pages#show"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

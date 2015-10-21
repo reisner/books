@@ -50,6 +50,11 @@
           <ul class="nav navbar-nav">
             <li><%= link_to "Books", books_path %></li>
             <li><%= link_to "Editions", editions_path %></li>
+            <li><%= link_to "About", '/pages/about' %></li>
+            <li><%= link_to "Guide", '/pages/firsteds' %></li>
+
+          </ul>
+          <ul class="nav navbar-nav pull-right">
             <% if user_signed_in? %>
               <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
             <% else %>
